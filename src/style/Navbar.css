@@ -1,0 +1,26 @@
+nav {
+    background-color: rgb(87, 87, 87); /* Background color of the navbar */
+    padding: 10px; /* Padding around the navbar */
+  }
+  
+  ul {
+    list-style-type: none; /* Remove default list styles */
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 10px; /* Margin between list items */
+  }
+  
+  a {
+    color: white; /* Link text color */
+    text-decoration: none; /* Remove default underline */
+    padding: 5px 10px; /* Padding around link text */
+  }
+  
+  a:hover {
+    background-color: rgb(138, 168, 126); /* Background color on hover */
+  }
+  

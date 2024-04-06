@@ -1,0 +1,12 @@
+h1 {
+  padding: 20px 0; 
+  text-align: center;
+  background-color: #7dbb42;
+  color: black; 
+  font-size: 24px; 
+  font-family: Arial, sans-serif; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  border-bottom: 2px solid #5f8c2e; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
