@@ -4,7 +4,9 @@ import SpecialDeals from './specialDeals';
 import Login from './Login';
 import Signup from './Signup'
 import Review from './Review';
+import Profile from './Profile';
 import '../style/App.css';
+
 
 import Navbar from '../components/Navbar.js';
 import '../style/Navbar.css';
@@ -39,10 +41,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/specialDeals" element={<SpecialDeals />} />
-          
           <Route path="/login" element={<Login loginUser={loginUser} />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Review" element={<Review />} />
+          <Route path="/Profile" element={<Profile />} />
         </Routes>
 
         <Footer />

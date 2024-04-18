@@ -9,11 +9,13 @@ function initUsers() {
   const users = [
     {
       username: "jabbar",
+      email: "jabbar@gmail.com",
       password: "1234"
     },
     {
-      username: "michael",
-      password: "123456"
+      username: "mike",
+      email: "mike@gmail.com",
+      password: "123"
     }
   ];
 
@@ -26,10 +28,10 @@ function getUsers() {
   return JSON.parse(data);
 }
 
-function verifyUser(username, password) {
+function verifyUser(username, email, password) {
   const users = getUsers();
   for(const user of users) {
-    if(username === user.username && password === user.password)
+    if(username === user.username && email === user.email && password === user.password)
     {
       setUser(username);
       return true;
@@ -39,7 +41,7 @@ function verifyUser(username, password) {
   return false;
 }
 
-function addUser(username,password) {
+function addUser(username, email, password) {
   const users = getUsers();
   for(const user of users) {
     if(username === user.username)
@@ -49,7 +51,7 @@ function addUser(username,password) {
     }
   }
 
-  users.push({username, password});
+  users.push({username, email, password});
 
   localStorage.setItem(USERS_KEY, JSON.stringify(users));
 

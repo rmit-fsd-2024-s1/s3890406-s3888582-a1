@@ -4,15 +4,16 @@ import { addUser } from "../data/repository";
 import '../style/Signup.css';
 
 function Login(props) {
-  const [fields, setFields] = useState({ username: "", password: "" });
+  const [fields, setFields] = useState({ name: "", email: "", password: "" });
   const [errorMessage, setErrorMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null); 
   const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
-    const temp = { username: fields.username, password: fields.password };
+    const temp = { name: fields.name, email: fields.email, password: fields.password };
     temp[name] = value;
     setFields(temp);
   }
@@ -20,10 +21,15 @@ function Login(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const addable = addUser(fields.username, fields.password);
+    const addable = addUser(fields.name, fields.email, fields.password);
 
     if(addable === true) {
-      navigate("/");
+      setSuccessMessage("Account created! Redirecting to Login page...");
+      setErrorMessage(null);
+      
+      setTimeout(() => {
+        navigate("/Login");
+      }, 3500); 
       return;
     }
 
@@ -31,39 +37,58 @@ function Login(props) {
     temp.password = "";
     setFields(temp);
 
-    setErrorMessage("Username taken, please try again.");
+    setErrorMessage("Name taken, please try again.");
   }
 
-  return (
-    <div>
-      <h2>Register</h2>
-      <hr />
-      <div className="row">
-        <div className="col-md-6">
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="username" className="control-label">Username</label>
-              <input name="username" id="username" className="form-control"
-                value={fields.username} onChange={handleInputChange} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password" className="control-label">Password</label>
-              <input type="password" name="password" id="password" className="form-control"
-                value={fields.password} onChange={handleInputChange} />
-            </div>
-            <div className="form-group">
-              <input type="submit" className="btn btn-primary" value="register" />
-            </div>
-            {errorMessage !== null &&
-              <div className="form-group">
-                <span className="text-danger">{errorMessage}</span>
+ return (
+  <div className="signup-container">
+    <h2>Create an Account</h2>
+    <hr />
+
+    <div id="row">
+      <div id="col-md-6">
+        <form onSubmit={handleSubmit}>
+
+          <div className="input-group">
+            <label htmlFor="name" className="control-label">Name: </label>
+            <input name="name" id="name" className="form-control"
+              value={fields.name} onChange={handleInputChange} />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="email" className="control-label">Email: </label>
+            <input type="email" name="email" id="email" className="form-control"
+              value={fields.email} onChange={handleInputChange} />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="password" className="control-label">Password: </label>
+            <input type="password" name="password" id="password" className="form-control"
+              value={fields.password} onChange={handleInputChange} />
+          </div>
+          <br />
+
+          <div className="button-group">
+            <input type="submit" className="btn btn-primary" value="Sign Up!" />
+          </div>
+          <br />
+
+          {successMessage && (
+              <div className="message-group">
+                <span className="text-success">{successMessage}</span>
               </div>
-            }
-          </form>
-        </div>
+            )}
+
+
+          {errorMessage !== null &&
+            <div className="error-group">
+              <span className="text-danger">{errorMessage}</span>
+            </div>
+          }
+        </form>
       </div>
     </div>
-  );
-}
-
+  </div>
+);
+        }
 export default Login;
