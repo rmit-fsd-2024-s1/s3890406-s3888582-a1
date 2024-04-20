@@ -39,12 +39,12 @@ function App() {
         <Navbar />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/specialDeals" element={<SpecialDeals />} />
+          <Route path="/" element={<Home username={username}/>} />
+          <Route path="/specialDeals" element={<SpecialDeals username={username}/>} />
           <Route path="/login" element={<Login loginUser={loginUser} />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/Review" element={<Review />} />
-          <Route path="/Profile" element={<Profile />} />
+          <Route path="/Signup" element={<Signup username={username}/>} />
+          <Route path="/Review" element={<Review username={username}/>} />
+          <Route path="/Profile" element={<Profile username={username}/>} />
         </Routes>
 
         <Footer />

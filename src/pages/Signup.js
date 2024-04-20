@@ -29,7 +29,7 @@ function Login(props) {
       
       setTimeout(() => {
         navigate("/Login");
-      }, 3500); 
+      }, 2000); 
       return;
     }
 
