@@ -116,6 +116,18 @@ function initItems() {
       price_old: "8.99",
       price_new: "4.99",
       image_url:"https://media.istockphoto.com/id/1369528511/photo/new-harvest-cleaned-carrots-packed-and-labeled-on-isolated-white-background.jpg?s=1024x1024&w=is&k=20&c=IP67FFtLuSwZi09djInECRdo8T3duOMfmzkRs5vDmJs="
+    },
+    {
+      item: "Sunflower seeds",
+      price_old: "2.99",
+      price_new: "0.99",
+      image_url:"https://media.istockphoto.com/id/1333231684/photo/peeled-sunflower-seeds-isolated-on-white-background.jpg?s=1024x1024&w=is&k=20&c=OGqkIXgDiAIVIUOIvrGGxNlC9X-1_0T9A8AtLIEiDnQ="
+    },
+    {
+      item: "BRAND watering can (YELLOW)",
+      price_old: "15.99",
+      price_new: "10.99",
+      image_url:"https://media.istockphoto.com/id/142266066/photo/watering-can.jpg?s=612x612&w=is&k=20&c=5FIu6ZwpnxRgHIIneYmZ-C4haxgKKIY7mytPITZ9060="
     }
 
   ];
