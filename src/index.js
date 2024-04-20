@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './style/index.css';
 import App from './pages/App';
-import { initUsers } from "./data/repository";
+import { initUsers , initItems } from "./data/repository";
 import reportWebVitals from './reportWebVitals';
 
 
 initUsers();
+initItems();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

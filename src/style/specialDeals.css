@@ -14,22 +14,22 @@
     margin-bottom: 20px;
     font-size: 16px;
   }
-    
-  #image-list {
+
+  #special-list {
     display: flex;
     flex-direction: column;
+    gap: 10px; /* Adjust the gap between items as needed */
   }
   
-  #image-list > div {
+  #special-list li {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    gap: 10px; /* Adjust the gap between image and text as needed */
   }
   
-  #image-list > div > img {
-    margin-right: 20px;
-    width: 150px;
-    height: auto;
+  #special-list img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
   }
-  
   

@@ -4,21 +4,23 @@ const EMAIL_KEY = "email";
 const PASS_KEY = "password";
 const JOIN_KEY = "date";
 
+const ITEMS_KEY = "items"
+
+
+
 function initUsers() {
-  if(localStorage.getItem(USERS_KEY) !== null)
-    return;
 
   const users = [
     {
       username: "jabbar",
       email: "jabbar@gmail.com",
-      password: "1234",
+      password: "AAAAAAA1",
       date:"1/1/1970"
     },
     {
       username: "mike",
       email: "mike@gmail.com",
-      password: "123",
+      password: "asdf1234",
       date:"2/2/1971"
     }
   ];
@@ -93,10 +95,49 @@ function removeUser() {
   localStorage.removeItem(JOIN_KEY);
 }
 
+
+
+function initItems() {
+  const items = [
+    {
+      item: "Chocolate protein bar",
+      price_old: "5.99",
+      price_new: "2.99",
+      image_url:"https://media.istockphoto.com/id/155153756/photo/chocolate-and-peanut-butter-energy-bar.jpg?s=1024x1024&w=is&k=20&c=vy_QM-Bw_Tn30PM17W9O2-K2lhNvlegJNHTtPm1JWCo="
+    },
+    {
+      item: "Olive oil",
+      price_old: "14.99",
+      price_new: "9.99",
+      image_url:"https://media.istockphoto.com/id/615424950/photo/olive-oil-bottle-isolated-on-the-white.jpg?s=1024x1024&w=is&k=20&c=X2vd2-vQmY9lqT-X5uiaNEyh89KEcVf2VAjm5UqWxIk="
+    },
+    {
+      item: "Organic carrots (PACK)",
+      price_old: "8.99",
+      price_new: "4.99",
+      image_url:"https://media.istockphoto.com/id/1369528511/photo/new-harvest-cleaned-carrots-packed-and-labeled-on-isolated-white-background.jpg?s=1024x1024&w=is&k=20&c=IP67FFtLuSwZi09djInECRdo8T3duOMfmzkRs5vDmJs="
+    }
+
+  ];
+
+  localStorage.setItem(ITEMS_KEY, JSON.stringify(items));
+}
+
+function getItems() {
+  let data = localStorage.getItem(ITEMS_KEY);
+  return JSON.parse(data);
+}
+
+
+
+
+
 export {
   addUser,
   initUsers,
   verifyUser,
   getUser,
-  removeUser
+  removeUser,
+  initItems,
+  getItems
 }
