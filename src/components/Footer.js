@@ -1,28 +1,14 @@
-import React from 'react';
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function Footer(props) {
+import { getUser, removeUser } from "../data/repository.js";
+
+
+function Footer() {
   return (
     <footer>
 
       <p>Authors: Mike and Jab</p>
-
-      <p>
-
-        {props.username === null ?
-          <>
-          <li className="nav-item">
-              <span className="nav-link text-light">Please Login!</span>
-            </li>                 
-          </>
-          :
-          <>
-            <li className="nav-item">
-              <span className="nav-link text-light">Welcome, {props.username}</span>
-            </li>
-          </>
-        }
-
-      </p>
 
       <p>
         <a href="mailto:s3888582@student.rmit.edu.au">s3888582</a>

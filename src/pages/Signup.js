@@ -21,6 +21,15 @@ function Login(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if(fields.password.length < 8){setErrorMessage("Password too short, min size of 8 required.");return;}
+
+    let has_number = false
+    for (let i = 0; i < fields.password.length; i++) {
+      if (!isNaN(fields.password.charAt(i))){has_number = true;}
+    }
+
+    if (!has_number){setErrorMessage("Password requires at least 1 number.");return;}
+
     const addable = addUser(fields.name, fields.email, fields.password);
 
     if(addable === true) {

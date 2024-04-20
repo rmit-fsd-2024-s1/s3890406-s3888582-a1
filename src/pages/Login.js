@@ -33,7 +33,7 @@ function Login(props) {
       setTimeout(() => {
         setSuccessMessage(null);
         navigate("/Profile");
-      }, 3500); 
+      }, 2000); 
     
       return;
     }
@@ -43,7 +43,7 @@ function Login(props) {
     temp.password = "";
     setFields(temp);
 
-    setErrorMessage("name and / or password invalid, please try again.");
+    setErrorMessage("name / email / password invalid, please try again.");
   }
 
   return (
