@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { getItems } from "../data/repository";
+import { getItems , addCart} from "../data/repository";
 import '../style/specialDeals.css';
 
 const loadItems = () => {
@@ -16,8 +16,13 @@ const loadItems = () => {
     const p = document.createElement('p');
     p.textContent = `${items[i].item} - Was: ${items[i].price_old} Now: ${items[i].price_new}`;
 
+    const button = document.createElement('button');
+    button.textContent = 'Add to cart';
+    button.addEventListener('click', () => addCart(items[i].id));
+
     li.appendChild(img);
     li.appendChild(p);
+    li.appendChild(button);
 
     ul.appendChild(li);
   }

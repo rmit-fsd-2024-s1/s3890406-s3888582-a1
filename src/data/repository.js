@@ -166,35 +166,43 @@ function editUserPass(password) {
 
 
 
-
-
 function initItems() {
   const items = [
     {
+      id:123,
+      cart:0,
       item: "Chocolate protein bar",
       price_old: "5.99",
       price_new: "2.99",
       image_url:"https://media.istockphoto.com/id/155153756/photo/chocolate-and-peanut-butter-energy-bar.jpg?s=1024x1024&w=is&k=20&c=vy_QM-Bw_Tn30PM17W9O2-K2lhNvlegJNHTtPm1JWCo="
     },
     {
+      id:5,
+      cart:0,
       item: "Olive oil",
       price_old: "14.99",
       price_new: "9.99",
       image_url:"https://media.istockphoto.com/id/615424950/photo/olive-oil-bottle-isolated-on-the-white.jpg?s=1024x1024&w=is&k=20&c=X2vd2-vQmY9lqT-X5uiaNEyh89KEcVf2VAjm5UqWxIk="
     },
     {
+      id:9467,
+      cart:0,
       item: "Organic carrots (PACK)",
       price_old: "8.99",
       price_new: "4.99",
       image_url:"https://media.istockphoto.com/id/1369528511/photo/new-harvest-cleaned-carrots-packed-and-labeled-on-isolated-white-background.jpg?s=1024x1024&w=is&k=20&c=IP67FFtLuSwZi09djInECRdo8T3duOMfmzkRs5vDmJs="
     },
     {
+      id:10,
+      cart:0,
       item: "Sunflower seeds",
       price_old: "2.99",
       price_new: "0.99",
       image_url:"https://media.istockphoto.com/id/1333231684/photo/peeled-sunflower-seeds-isolated-on-white-background.jpg?s=1024x1024&w=is&k=20&c=OGqkIXgDiAIVIUOIvrGGxNlC9X-1_0T9A8AtLIEiDnQ="
     },
     {
+      id:999,
+      cart:0,
       item: "BRAND watering can (YELLOW)",
       price_old: "15.99",
       price_new: "10.99",
@@ -211,6 +219,42 @@ function getItems() {
   return JSON.parse(data);
 }
 
+function addCart(id){
+  const items = getItems();
+
+  let items_size = Object.keys(items).length;
+
+  for (let i=0;i<items_size;i++){
+
+    if (id == items[i].id){
+
+      items[i].cart += 1
+
+    }
+  }
+
+  console.log(items)
+  localStorage.setItem(ITEMS_KEY, JSON.stringify(items));
+}
+
+function removeCart(id){
+  const items = getItems();
+
+  let items_size = Object.keys(items).length;
+
+  for (let i=0;i<items_size;i++){
+
+    if (id == items[i].id && items[i].cart > 0){
+
+      items[i].cart -= 1
+
+    }
+  }
+
+  console.log(items)
+  localStorage.setItem(ITEMS_KEY, JSON.stringify(items));
+}
+
 export {
   addUser,
   initUsers,
@@ -221,5 +265,7 @@ export {
   editUserName,
   editUserPass,
   initItems,
-  getItems
+  getItems,
+  addCart,
+  removeCart
 }
