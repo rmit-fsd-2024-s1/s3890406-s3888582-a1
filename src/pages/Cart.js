@@ -91,7 +91,7 @@ function Cart() {
 
         <input type="text" name="CN" placeholder="1234567809123456" value={details.CN} onChange={handleInputChange}/>
 
-        <input type="text" name="CED" placeholder="1223" value={details.CED} onChange={handleInputChange}/>
+        <input type="text" name="CED" placeholder="12/2023" value={details.CED} onChange={handleInputChange}/>
 
         <input type="text" name="CVV" placeholder="123" value={details.CVV} onChange={handleInputChange}/>
 
