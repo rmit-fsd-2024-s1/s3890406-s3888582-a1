@@ -120,22 +120,49 @@ function deleteUser() {
       return true
 
     }
-
-
-
-
-
   }
-
-
-
-  return Error 
 
 }
 
+function editUserName(name) {
+  let users = getUsers();
 
+  let users_size = Object.keys(users).length;
 
+  for (let i=0;i<users_size;i++){
 
+    if (users[i].email === localStorage.getItem(EMAIL_KEY)){
+
+      users[i].username = name;
+
+      localStorage.setItem(USERS_KEY, JSON.stringify(users))
+      console.log(users)
+      return true
+
+    }
+  }
+
+}
+
+function editUserPass(password) {
+  let users = getUsers();
+
+  let users_size = Object.keys(users).length;
+
+  for (let i=0;i<users_size;i++){
+
+    if (users[i].email === localStorage.getItem(EMAIL_KEY)){
+
+      users[i].password = password;
+
+      localStorage.setItem(USERS_KEY, JSON.stringify(users))
+      console.log(users)
+      return true
+
+    }
+  }
+
+}
 
 
 
@@ -191,6 +218,8 @@ export {
   getUser,
   removeUser,
   deleteUser,
+  editUserName,
+  editUserPass,
   initItems,
   getItems
 }

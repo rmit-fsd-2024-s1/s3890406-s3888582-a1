@@ -20,6 +20,7 @@ import Header from '../components/Header.js';
 import '../style/Header.css';
 
 import { getUser, removeUser } from "../data/repository.js";
+import EditDetails from "./EditDetails.js";
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           <Route path="/Profile" element={<Profile username={username}/>} />
           <Route path="/Guide" element={<Guide username={username}/>} />
           <Route path="/DeleteUser" element={<DeleteUser username={username}/>} />
+          <Route path="/EditDetails" element={<EditDetails username={username}/>} />
         </Routes>
 
         <Footer />

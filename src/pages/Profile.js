@@ -23,8 +23,13 @@ function Profile(username) {
 
   }
 
+  const edit_details = () => {
+    navigate("/EditDetails")
+
+  }
+
   return (
-    <div>
+    <div id = "content">
       <h2>Profile</h2>
 
       <p>
@@ -37,7 +42,10 @@ function Profile(username) {
               <p>Name: {name} </p>
               <p>Email: {email} </p>
               <p>Join date: {joindate} </p>
-              <button onClick={logout_user}>Logout</button> <br></br>
+
+
+              <button onClick={edit_details}>Edit details</button> <br></br><br></br>
+              <button onClick={logout_user}>Logout</button> <br></br><br></br>
               <button onClick={del_user}>DELETE USER</button>
 
             </>
