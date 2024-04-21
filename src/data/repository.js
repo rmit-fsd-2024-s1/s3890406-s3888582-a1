@@ -9,7 +9,8 @@ const ITEMS_KEY = "items"
 
 
 function initUsers() {
-
+  if(localStorage.getItem(USERS_KEY) !== null)
+    return;
   const users = [
     {
       username: "jabbar",
@@ -167,6 +168,8 @@ function editUserPass(password) {
 
 
 function initItems() {
+  if(localStorage.getItem(ITEMS_KEY) !== null)
+    return;
   const items = [
     {
       id:123,
@@ -255,6 +258,83 @@ function removeCart(id){
   localStorage.setItem(ITEMS_KEY, JSON.stringify(items));
 }
 
+function clearCart(){
+  const items = getItems();
+
+  let items_size = Object.keys(items).length;
+
+  for (let i=0;i<items_size;i++){
+    items[i].cart = 0
+  }
+
+  console.log(items)
+  localStorage.setItem(ITEMS_KEY, JSON.stringify(items));
+}
+
+function getCartTotal(){
+  const items = getItems();
+
+  let total = 0;
+
+  let items_size = Object.keys(items).length;
+
+  for (let i=0;i<items_size;i++){
+
+    if (items[i].cart > 0){
+
+      total += items[i].cart * items[i].price_new;
+
+    }
+  }
+  console.log(total)
+  return total;
+}
+
+function verifyCard(CN, CED, CVV) {
+
+  let verified = false;
+
+  // Implementation for using Luhn's algorithm to check redit Card Number validity
+  // Reference to https://www.30secondsofcode.org/js/s/luhn-check/
+  const luhnCheck = num => {
+    const arr = `${num}`
+      .split('')
+      .reverse()
+      .map(x => Number.parseInt(x));
+    const lastDigit = arr.shift();
+    let sum = arr.reduce(
+      (acc, val, i) =>
+        i % 2 !== 0 ? acc + val : acc + ((val *= 2) > 9 ? val - 9 : val),
+      0
+    );
+    sum += lastDigit;
+    return sum % 10 === 0;
+  };
+
+  verified = luhnCheck(CN);
+  if(!verified){return false;}
+
+
+  if (CVV.length === 3){verified = true}
+  else{verified = false;}
+  if(!verified){return false;}
+
+
+  const date_split = CED.split('/');
+  const test_month = parseInt(date_split[0]);
+  const test_year = parseInt(date_split[1]);
+
+  const date_now = new Date();
+  const curr_year = date_now.getFullYear();
+  const curr_month = date_now.getMonth() + 1;
+
+  if (test_year < curr_year || (test_year === curr_year && test_month < curr_month)) {
+    verified = false
+  }
+
+  return verified; 
+}
+
 export {
   addUser,
   initUsers,
@@ -267,5 +347,8 @@ export {
   initItems,
   getItems,
   addCart,
-  removeCart
+  removeCart,
+  getCartTotal,
+  clearCart,
+  verifyCard
 }

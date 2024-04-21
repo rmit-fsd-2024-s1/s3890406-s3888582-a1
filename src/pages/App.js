@@ -21,6 +21,7 @@ import '../style/Header.css';
 
 import { getUser, removeUser } from "../data/repository.js";
 import EditDetails from "./EditDetails.js";
+import Cart from "./Cart.js";
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
           <Route path="/Guide" element={<Guide username={username}/>} />
           <Route path="/DeleteUser" element={<DeleteUser username={username}/>} />
           <Route path="/EditDetails" element={<EditDetails username={username}/>} />
+          <Route path="/Cart" element={<Cart username={username}/>} />
         </Routes>
 
         <Footer />

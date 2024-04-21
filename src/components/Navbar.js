@@ -12,6 +12,7 @@ function Navbar() {
         <li><Link to="/Login">Login</Link></li>
         <li><Link to="/Review">Leave a Review</Link></li>
         <li><Link to="/Guide">Start Micro-Farming Now!</Link></li>
+        <li><Link to="/Cart">Cart</Link></li>
       </ul>
     </nav>
   );
