@@ -18,6 +18,11 @@ function Profile(username) {
 
   }
 
+  const del_user = () => {
+    navigate("/DeleteUser")
+
+  }
+
   return (
     <div>
       <h2>Profile</h2>
@@ -32,7 +37,9 @@ function Profile(username) {
               <p>Name: {name} </p>
               <p>Email: {email} </p>
               <p>Join date: {joindate} </p>
-              <button onClick={logout_user}>Logout</button>
+              <button onClick={logout_user}>Logout</button> <br></br>
+              <button onClick={del_user}>DELETE USER</button>
+
             </>
           }
       </p>

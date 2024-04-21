@@ -6,6 +6,7 @@ import Signup from './Signup'
 import Review from './Review';
 import Profile from './Profile';
 import Guide from './Guide';
+import DeleteUser from './DeleteUser.js';
 import '../style/App.css';
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/Review" element={<Review username={username}/>} />
           <Route path="/Profile" element={<Profile username={username}/>} />
           <Route path="/Guide" element={<Guide username={username}/>} />
+          <Route path="/DeleteUser" element={<DeleteUser username={username}/>} />
         </Routes>
 
         <Footer />

@@ -95,6 +95,50 @@ function removeUser() {
   localStorage.removeItem(JOIN_KEY);
 }
 
+function deleteUser() {
+  let users = getUsers();
+  
+
+  let to_delete = localStorage.getItem(USER_KEY);
+
+  let users_size = Object.keys(users).length;
+
+  for (let i=0;i<users_size;i++){
+
+    if (users[i].username === to_delete){
+
+      delete users[i]
+
+      var users_flat = users.filter(item => item !== undefined && item !== null);
+
+      localStorage.setItem(USERS_KEY, JSON.stringify(users_flat))
+      console.log(users_flat)
+
+      removeUser()
+
+
+      return true
+
+    }
+
+
+
+
+
+  }
+
+
+
+  return Error 
+
+}
+
+
+
+
+
+
+
 
 
 function initItems() {
@@ -140,16 +184,13 @@ function getItems() {
   return JSON.parse(data);
 }
 
-
-
-
-
 export {
   addUser,
   initUsers,
   verifyUser,
   getUser,
   removeUser,
+  deleteUser,
   initItems,
   getItems
 }
