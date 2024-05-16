@@ -7,7 +7,6 @@ import { getUser , removeUser} from '../data/repository';
 function Profile(username) {
   const navigate = useNavigate();
 
-
   const name = getUser()[0]
   const email = getUser()[1]
   const joindate = getUser()[2]
@@ -30,24 +29,24 @@ function Profile(username) {
 
   return (
     <div id = "content">
-      <h2>Profile</h2>
+      <h2 id = "profile-title">Profile</h2>
 
       <p>
         {name === null ?
             <>
-              <p>Please Login!</p>           
+              <p>You must Login to view the contents of this page.</p>           
             </>
             :
             <>
+            <div id = "user-details">
               <p>Name: {name} </p>
               <p>Email: {email} </p>
               <p>Join date: {joindate} </p>
-
-
-              <button onClick={edit_details}>Edit details</button> <br></br><br></br>
-              <button onClick={logout_user}>Logout</button> <br></br><br></br>
-              <button onClick={del_user}>DELETE USER</button>
-
+              
+            </div>
+              <button onClick={edit_details} id="edit-details-btn">Edit details</button> <br></br><br></br>
+              <button onClick={logout_user} id="logout-btn">Logout</button> <br></br><br></br>
+              <button onClick={del_user} id="delete-user-btn">Delete Account</button>
             </>
           }
       </p>
